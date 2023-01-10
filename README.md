@@ -1,1 +1,1 @@
-# For install Primavera unattended.
+# For install Primavera SQL database unattended.
