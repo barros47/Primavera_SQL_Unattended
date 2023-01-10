@@ -45,7 +45,7 @@ dism /online /enable-feature /featurename:NetFx3 /all
 
 #Start SQL Setup with configuration file.
 
-START /WAIT C:\INCENTEA\SQLEXPRADV_x64_ENU\SETUP.exe /CONFIGURATIONFILE=C:\Gestao\install\ConfigurationFile.ini /IAcceptSQLServerLicenseTerms
+START /WAIT C:\SCCM\SQLEXPRADV_x64_ENU\SETUP.exe /CONFIGURATIONFILE=C:\Gestao\install\ConfigurationFile.ini /IAcceptSQLServerLicenseTerms
 
 #Install SQL Management Studio.
 
