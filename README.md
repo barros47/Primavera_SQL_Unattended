@@ -14,7 +14,7 @@ Use the windows10_template.bat to create default folders, copy sql configuration
 
 #Check and request Administrative Privileges.
   
-REM  --> Check for permissions
+"REM  --> Check for permissions"
 >nul 2>&1 "%SYSTEMROOT%\system32\cacls.exe" "%SYSTEMROOT%\system32\config\system"
 
 REM --> If error flag set, we do not have admin.
