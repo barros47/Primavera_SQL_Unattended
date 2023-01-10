@@ -48,6 +48,20 @@ md c:\Gestao\primavera
 
 #Copy configuration file with Primavera required parameters to specific folder.
 
+START /WAIT xcopy "ConfigurationFile.ini" "c:\Gestao\install\"
+
+#Enable Netframework Feature.
+
+dism /online /enable-feature /featurename:NetFx3 /all
+
+#Start SQL Setup with configuration file.
+
+START /WAIT C:\INCENTEA\SQLEXPRADV_x64_ENU\SETUP.exe /CONFIGURATIONFILE=C:\Gestao\install\ConfigurationFile.ini /IAcceptSQLServerLicenseTerms
+
+#Install SQL Management Studio.
+
+START /WAIT SSMS-Setup-PTB.exe /install /quiet /passive /norestart
+
 ## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first
