@@ -1,8 +1,5 @@
 # For install Primavera SQL database unattended.
 
-
-# Primavera SQL Database Installation unattended
-
 Primavera SQL Database Installation unattended is a batch file that does not require user input for Primavera Databases parameters as password, collation and instance name 
 
 ## Installation
