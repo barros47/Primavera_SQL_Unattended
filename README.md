@@ -64,11 +64,11 @@ Use the windows10_template.bat to:
     START /WAIT SSMS-Setup-PTB.exe /install /quiet /passive /norestart
     
     
-    ##########
-    ##########
+ ##########
+ ##########
     
     
-#Depending on SO Language change configuration file service account parameters from "SERVICO LOCAL" to "LOCAL SERVICE"
+    #Depending on SO Language change configuration file service account parameters from "SERVICO LOCAL" to "LOCAL SERVICE"
 
 ## Contributing
 
