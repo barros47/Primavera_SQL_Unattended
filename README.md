@@ -7,7 +7,7 @@ Primavera SQL Database Installation unattended is a batch file that does not req
 Use the windows10_template.bat to:
 
     -> create default folders.
-    -> copy sql configurationfile.
+    -> copy sql configuration file.
     -> install SQL and SSMS.
 
 
