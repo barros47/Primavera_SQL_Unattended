@@ -1,41 +1,35 @@
-$RootFolder = "C:\Gestao\"
-$Folderinstall = "install"
-$Folderbackup = "backup"
-$Folderprimavera = "primavera"
+param(
+    [string]$RootFolder = "C:\Gestao\",
+    [string]$Folderinstall = "install",
+    [string]$Folderbackup = "backup",
+    [string]$Folderprimavera = "primavera"
+)
 
-#Check if the Folders Exist or not
-if(Get-ChildItem -Path $RootFolder -ErrorAction Ignore)
-{
-    Write-Host "Folder Exists"
-    #Perform Folder based operation, Count files in folder
-    (Get-ChildItem -Path $RootFolder -File | Measure-Object).Count
+# Check if the folders exist
+if (Test-Path $RootFolder) {
+    Write-Host "Root folder exists"
+} else {
+    Write-Host "Root folder does not exist"
+    try {
+        New-Item $RootFolder -ItemType Directory | Out-Null
+        New-Item "$RootFolder$Folderinstall" -ItemType Directory | Out-Null
+        New-Item "$RootFolder$Folderbackup" -ItemType Directory | Out-Null
+        New-Item "$RootFolder$Folderprimavera" -ItemType Directory | Out-Null
+        Write-Host "Directories created successfully"
+    } catch {
+        Write-Host "Error creating directories: $($_.Exception.Message)"
+    }
 }
-else
-{
-    Write-Host "Folder Doesn't Exists"
 
-    #PowerShell Create directory if not exists
-    New-Item $RootFolder -ItemType Directory
-    New-Item $RootFolder$Folderinstall -ItemType Directory
-    New-Item $RootFolder$Folderbackup -ItemType Directory
-    New-Item $RootFolder$Folderprimavera -ItemType Directory
-}
-
-#Check if.Net Framework 3 is Installed
-if ((Get-WindowsCapability -Online -Name NetFX3~~~~).State -ne 'Installed')
-{
-    Write-Host ".Net is not Present"
-    
-    try
-    {
+# Check if .NET Framework 3 is installed
+if ((Get-WindowsCapability -Online -Name NetFX3~~~~).State -ne 'Installed') {
+    Write-Host ".NET Framework 3.5 is not installed"
+    try {
         Add-WindowsCapability –Online -Name NetFx3~~~~ –Source D:\sources\sxs;
+        Write-Host ".NET Framework 3.5 installed successfully"
+    } catch {
+        Write-Warning -Message "Error installing .NET Framework 3.5: $($_.Exception.Message)"
     }
-    catch
-    {
-        Write-Warning -Message $_.Exception.Message
-    }
-}
-else
-{
-    Write-Host ".Net is Present"
+} else {
+    Write-Host ".NET Framework 3.5 is installed"
 }
