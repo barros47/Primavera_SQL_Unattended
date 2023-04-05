@@ -1,16 +1,12 @@
 <#
 .SYNOPSIS
     Check if the requirements for installing Primavera software are met.
-
 .PARAMETER RootFolder
     The root folder where the Primavera software will be installed. Default value is "C:\Gestao\".
-
 .PARAMETER Folderinstall
     The subfolder where the Primavera installer will be stored. Default value is "install".
-
 .PARAMETER Folderbackup
     The subfolder where the Primavera backup files will be stored. Default value is "backup".
-
 .PARAMETER Folderprimavera
     The subfolder where the Primavera software will be installed. Default value is "primavera".
 #>
